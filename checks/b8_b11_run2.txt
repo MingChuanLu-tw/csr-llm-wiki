@@ -1,0 +1,25 @@
+======================================================================
+B8 — equation check
+======================================================================
+register entries (normalised parts): 40
+display equations on slides        : 6
+NOT FOUND IN REGISTER              : 2
+   \frac{\partial}{\partial\theta}\left(\frac{\partial\pi_1}{\partial s_1}\right) < 0
+   \frac{\partial}{\partial\theta}\left(\frac{\partial\pi_2}{\partial s_2}\right) > 0
+delimiter balance                                   PASS
+
+======================================================================
+B11 — timing check
+======================================================================
+spoken words               : 4310
+at 150 wpm (fast)          : 28.7 min
+at 130 wpm (measured slow) : 33.2 min
+fits 30–45 min                                      FAIL (too short)
+slides in deck             : 30
+slides with script         : 30
+every slide has a script                            PASS
+
+======================================================================
+RESULT: 2 FAILURE(S)
+  - B8: 2 slide equation(s) absent from the register
+  - B11: 28.7 min at 150 wpm is under the 30-minute floor

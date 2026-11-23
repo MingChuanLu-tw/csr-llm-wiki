@@ -1,0 +1,37 @@
+B10 render check — run 5 (re-run to cover all 37 slides)
+Date: 2026-11-17
+Origin: http://127.0.0.1:8731/index.html  (real HTTP origin, not a data: snapshot)
+Method: scripts/b10_overflow_check.js, executed in the rendered page.
+
+WHY THIS RUN EXISTS
+Runs 1-4 covered the 30 main slides (log.md:177 records "0/30"). The seven backup
+slides B1-B7 were added later (log.md:188), and the submission document claimed
+"37 pages, zero overflow" with no artefact behind it. The A-class review of
+section 6 flagged that claim as UNSUPPORTED. This run supplies the artefact.
+
+STAGE
+  measured: 1280 x 720 px in layout coordinates (fixed stage, JS-scaled for display)
+
+VERTICAL (content must end above .foot)
+  slides measured            : 37  (30 main + 7 backup)
+  slides overflowing         : 0
+  tightest clearance         : 27.0 px  (slide 8)
+  criterion                  : for every non-absolutely-positioned child of the
+                               slide, offsetTop+offsetHeight <= foot.offsetTop
+  note                       : .foot and .n are position:absolute chrome that sit
+                               by design inside the stage padding; an earlier
+                               criterion that compared against the padding box
+                               reported all 37 as failing. That was the check
+                               being wrong, not the deck.
+
+HORIZONTAL
+  slides with scrollWidth > clientWidth : 0 of 37
+  note: a first pass flagged slide 8 (an <em> apparently 254 px past the right
+  edge). It is a measurement artefact: that <em> wraps across two lines, so it
+  has 2 client rects and offsetLeft+offsetWidth describes the union box, not a
+  rendered overflow. scrollWidth confirms no overflow on any slide.
+
+SCROLL OVERFLOW
+  slides with scrollHeight > clientHeight : 0 of 37
+
+RESULT: PASS - 0 of 37 slides overflow.

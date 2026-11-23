@@ -1,0 +1,30 @@
+======================================================================
+B8 — equation check
+======================================================================
+register entries (normalised parts): 37
+display equations on slides        : 6
+NOT FOUND IN REGISTER              : 5
+   \pi_1^{*} > \pi_2^{*}
+   p_1 = a + s_1 - x_1 - \gamma x_2
+   \pi_i = (p_i - c)\,x_i - s_i^{2}
+   \frac{ds_2}{ds_1}   
+     
+        Below the threshold  Strategic  substitutes . The leader invests 
+   our reading  &nbsp;So $\theta$ is not a neutral leak. It is a  transfer of incentive  from the leade
+delimiter balance                                   PASS
+
+======================================================================
+B11 — timing check
+======================================================================
+spoken words               : 3614
+at 150 wpm (fast)          : 24.1 min
+at 130 wpm (measured slow) : 27.8 min
+fits 30–45 min                                      FAIL (too short)
+slides in deck             : 30
+slides with script         : 30
+every slide has a script                            PASS
+
+======================================================================
+RESULT: 2 FAILURE(S)
+  - B8: 5 slide equation(s) absent from the register
+  - B11: 24.1 min at 150 wpm is under the 30-minute floor

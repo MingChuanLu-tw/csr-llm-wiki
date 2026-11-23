@@ -1,0 +1,110 @@
+======================================================================
+A4 — Kopel (2021) symbolic re-derivation
+======================================================================
+
+-- eq. (2) direct demand --
+[PASS] eq (2) x1
+[PASS] eq (2) x2
+
+-- eq. (3) stage-3 prices --
+[PASS] eq (3) p1(s1,s2)
+[PASS] eq (3) p2(s1,s2)
+   d2pi1/dp1^2 = 2/(gamma**2 - 1)   (negative for gamma<1 -> max)
+   d2pi2/dp2^2 = 2/(gamma**2 - 1)
+
+-- eq. (4) follower reaction function --
+[PASS] eq (4) s2(s1)
+   ds2/ds1 = -(gamma**2 - 2)*(gamma**2*theta + gamma - 2*theta)/(gamma**6 - 8*gamma**4 + 20*gamma**2 - 12)
+   numerator = -(gamma**2 - 2)*(gamma**2*theta + gamma - 2*theta)
+   -> sign flips at theta = gamma/(2-gamma^2); checked numerically below
+
+-- eq. (5) leader equilibrium CSR --
+[PASS] eq (5) s1*
+
+-- eq. (6) follower equilibrium CSR --
+[PASS] eq (6) s2*
+
+-- eq. (7) equilibrium prices --
+[PASS] eq (7) p1*
+[PASS] eq (7) p2*
+
+-- equilibrium profits (p. 497) --
+[PASS] pi1*
+[PASS] pi2*
+
+======================================================================
+Numerical thresholds
+======================================================================
+
+-- gamma_max = 0.810736 --
+   D(0.810736, theta=0) = 0.715511161166506609020823029947
+   D(0.810736, theta=1) = 4.04146111374720394540002729514
+   root of D at theta=0: gamma = 0.8301761068
+   root of D at theta=0.5: gamma = 0.9495132209
+   root of D at theta=1: gamma = 0.9453227046
+   d2pi1/ds1^2 (gamma=0.5, theta=0)   = -1.3798144
+   d2pi1/ds1^2 (gamma=0.810736, th=0) = -0.34848043
+   SOC root at theta=0: not found (Could not find root within given tolerance. (4.0 > 1.92592994438723585305597794258492732e-34)
+Try another starting point or tweak arguments.)
+
+-- turning point of s1* at theta=0 (paper: 0.531963) --
+   recomputed turning point: gamma = 0.5319633163
+   paper value             : 0.531963
+   |difference|            = 3.16337e-7
+   ds2*/dgamma at theta=0, sample points: ['-0.20264', '-0.13746', '-0.11416', '-0.50633', '-6.911']
+   all negative: True
+
+-- footnote 15 thresholds (derivative sign at gamma = gamma_max) --
+   ds1*/dgamma at gamma_max, theta=0   : 22.024256
+   ds1*/dgamma at gamma_max, theta=0.5 : -0.71451424
+   ds2*/dgamma at gamma_max, theta=0   : -14.00293
+   ds2*/dgamma at gamma_max, theta=0.5 : 0.7761106
+   theta* for leader  (paper 0.229499): recomputed = 0.2294985504, diff = 4.49622e-7
+   theta* for follower (paper 0.202167): recomputed = 0.2021670222, diff = 2.21579e-8
+
+======================================================================
+Lemma 1 (theta = 0)
+======================================================================
+-- s1* - s2* closed form on p. 497 --
+[PASS] s1*-s2* identity (theta=0)
+   s1* > s2* on 39 grid points in (0, gamma_max): HOLDS
+   pi1* > pi2* on same grid: HOLDS
+
+======================================================================
+Lemma 2 — FMA frontier  pi1* = pi2*
+======================================================================
+   gamma=0.10:  FMA holds for theta < 5.34322e-5
+   gamma=0.30:  FMA holds for theta < 0.00150222
+   gamma=0.50:  FMA holds for theta < 0.00866939
+   gamma=0.70:  FMA holds for theta < 0.0392805
+   gamma=0.80:  FMA holds for theta < 0.0960075
+
+======================================================================
+Lemma 3 — shape by theta band
+======================================================================
+   theta=0      s1*: U-shaped     s2*: decreasing
+   theta=0.15   s1*: U-shaped     s2*: decreasing
+   theta=0.21   s1*: U-shaped     s2*: U-shaped
+   theta=0.25   s1*: decreasing   s2*: U-shaped
+   theta=0.5    s1*: decreasing   s2*: U-shaped
+   theta=0.9    s1*: decreasing   s2*: U-shaped
+
+   Paper's claim: theta<0.202167 -> s2* decreasing;
+                  theta>0.229499 -> s1* decreasing;
+                  band 0.202167..0.229499 -> both U-shaped (Fig. 3, theta=0.21)
+
+-- Fig. 3 (theta = 0.21): is s2* above s1*? --
+   gamma=0.05  s1*=0.319171     s2*=0.345244     s2*>s1* (follower above)
+   gamma=0.2   s1*=0.28456      s2*=0.318175     s2*>s1* (follower above)
+   gamma=0.4   s1*=0.249852     s2*=0.293682     s2*>s1* (follower above)
+   gamma=0.6   s1*=0.222075     s2*=0.278492     s2*>s1* (follower above)
+   gamma=0.8   s1*=0.208177     s2*=0.27813      s2*>s1* (follower above)
+
+-- Fig. 1 (theta=0) vs Fig. 3 (theta=0.21) levels --
+   gamma=0.05  s1*: theta=0 -> 0.322925   theta=0.21 -> 0.319171
+   gamma=0.4   s1*: theta=0 -> 0.278873   theta=0.21 -> 0.249852
+   gamma=0.8   s1*: theta=0 -> 0.503855   theta=0.21 -> 0.208177
+
+======================================================================
+SYMBOLIC CHECKS: 12/12 passed
+======================================================================

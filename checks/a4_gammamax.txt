@@ -1,0 +1,75 @@
+========================================================================
+Hunting for gamma_max = 0.810736
+========================================================================
+
+1. follower stage-2 SOC  d2pi2/ds2^2  (needs < 0)
+   theta=0.0  first sign change at gamma = 0.932525906    value at 0.810736 = -1.05839
+   theta=0.5  first sign change at gamma = 0.932525906    value at 0.810736 = -1.05839
+   theta=1.0  first sign change at gamma = 0.932525906    value at 0.810736 = -1.05839
+
+2. leader stage-1 SOC  d2pi1/ds1^2  (needs < 0)
+   theta=0.0  first sign change at gamma = 0.830176107    value at 0.810736 = -0.34848
+   theta=0.5  first sign change at gamma = 0.900657813    value at 0.810736 = -1.46488
+   theta=1.0  first sign change at gamma = 0.921880687    value at 0.810736 = -1.96834
+
+3. equilibrium quantity x1*  (needs > 0)
+   theta=0.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 1.23345
+   theta=0.5  first sign change at gamma = 0.865758844    value at 0.810736 = 0.293427
+   theta=1.0  first sign change at gamma = 0.865758844    value at 0.810736 = 0.218374
+
+4. equilibrium quantity x2*  (needs > 0)
+   theta=0.0  first sign change at gamma = 0.810735877    value at 0.810736 = -4.28356e-6  <<< MATCHES 0.810736
+   theta=0.5  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.857082
+   theta=1.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.891625
+
+5. equilibrium s1*  (needs > 0)
+   theta=0.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.656161
+   theta=0.5  first sign change at gamma = 0.865758844    value at 0.810736 = 0.0888534
+   theta=1.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.016084
+
+6. equilibrium s2*  (needs > 0)
+   theta=0.0  first sign change at gamma = 0.810735877    value at 0.810736 = -1.72063e-6  <<< MATCHES 0.810736
+   theta=0.5  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.344275
+   theta=1.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.35815
+
+7. bracket 6 - g(4 + g(5 - g - g^2))
+   theta=0.0  first sign change at gamma = 0.865758844    value at 0.810736 = 0.435517
+
+8. bracket 6 - g(4t + g(5 - gt - g^2))
+   theta=0.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 3.14557
+   theta=0.5  first sign change at gamma = none in (0,1)  value at 0.810736 = 1.79054
+   theta=1.0  first sign change at gamma = 0.865758844    value at 0.810736 = 0.435517
+
+9. 12 - 20g^2 + 8g^4 - g^6
+   theta=0.0  first sign change at gamma = 0.932525906    value at 0.810736 = 2.02644
+
+10. D = (12-20g^2+8g^4-g^6)^2 - (1-g^2)(6-g(4t+g(5-gt-g^2)))^2
+   theta=0.0  first sign change at gamma = 0.830176107    value at 0.810736 = 0.715511
+   theta=0.5  first sign change at gamma = 0.900657813    value at 0.810736 = 3.00773
+   theta=1.0  first sign change at gamma = 0.921880687    value at 0.810736 = 4.04146
+
+11. pi1*  (needs > 0)
+   theta=0.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.0908482
+   theta=0.5  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.0216119
+   theta=1.0  first sign change at gamma = none in (0,1)  value at 0.810736 = 0.016084
+
+12. pi2*  (needs > 0)
+   theta=0.0  first sign change at gamma = 0.932525906    value at 0.810736 = 3.32772e-12
+   theta=0.5  first sign change at gamma = 0.932525906    value at 0.810736 = 0.133224
+   theta=1.0  first sign change at gamma = 0.932525906    value at 0.810736 = 0.144179
+
+========================================================================
+What number is 0.810736?
+========================================================================
+   target                 = 0.810736
+   sqrt(2) - 1/2          = 0.9142135624
+   (sqrt(17)-1)/4         = 0.7807764064
+
+   bracket 7 as polynomial: gamma**4 + gamma**3 - 5*gamma**2 - 4*gamma + 6
+      real root in (0,1.5): 0.865758843888704
+
+   price-stage Hessian det = (4 - gamma**2)/(gamma**4 - 2*gamma**2 + 1)
+
+========================================================================
+Conclusion is written by hand into checks/a4_report.md
+========================================================================

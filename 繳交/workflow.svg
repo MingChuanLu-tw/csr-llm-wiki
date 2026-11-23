@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760" font-family="'Noto Sans TC','PingFang TC','Helvetica Neue',sans-serif">
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5b6b7a"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#b3261e"/></marker>
+  <style>
+    .ai   {fill:#eef2fb; stroke:#8fa7d4}
+    .chk  {fill:#eef7f5; stroke:#5aa397}
+    .hum  {fill:#fdf0ef; stroke:#d08b86}
+    .out  {fill:#f4f6f7; stroke:#9aa7b2}
+    rect  {stroke-width:1.4; rx:7}
+    .t    {font-size:15px; fill:#1b2733}
+    .tb   {font-size:15px; font-weight:600; fill:#1b2733}
+    .s    {font-size:12px; fill:#5b6b7a}
+    .back {font-size:12.5px; fill:#b3261e}
+    .lane {font-size:13px; font-weight:600; fill:#8a99a8; letter-spacing:.08em}
+    .ttl  {font-size:20px; font-weight:600; fill:#1b2733}
+    .fwd  {stroke:#5b6b7a; stroke-width:1.6; fill:none; marker-end:url(#a)}
+    .bk   {stroke:#b3261e; stroke-width:1.5; fill:none; stroke-dasharray:5 4; marker-end:url(#ab)}
+  </style>
+</defs>
+
+<text class="ttl" x="30" y="34">Graph：從論文到簡報的流程</text>
+<text class="s" x="30" y="56">藍＝AI 節點　綠＝可執行檢查　粉＝人工關卡　紅虛線＝退回路線。每個 AI 節點最多 3 輪，超過就停下問人。</text>
+
+<!-- ============ GRAPH A ============ -->
+<text class="lane" x="30" y="100">GRAPH A — 建立 WIKI（每篇來源跑一次）</text>
+<line x1="30" y1="110" x2="1150" y2="110" stroke="#dfe5ea"/>
+
+<rect class="ai"  x="30"  y="130" width="150" height="56"/>
+<text class="tb" x="44" y="152">A1 讀論文</text><text class="s" x="44" y="172">→ wiki/papers/*.md</text>
+
+<rect class="ai"  x="215" y="130" width="150" height="56"/>
+<text class="tb" x="229" y="152">A2 更新概念頁</text><text class="s" x="229" y="172">→ concepts, registry</text>
+
+<rect class="chk" x="400" y="130" width="150" height="56"/>
+<text class="tb" x="414" y="152">A3 獨立審查</text><text class="s" x="414" y="172">新 context，比對 PDF</text>
+
+<rect class="chk" x="585" y="130" width="150" height="56"/>
+<text class="tb" x="599" y="152">A4 符號驗證</text><text class="s" x="599" y="172">sympy 重推模型</text>
+
+<rect class="chk" x="770" y="130" width="150" height="56"/>
+<text class="tb" x="784" y="152">A5 lint</text><text class="s" x="784" y="172">腳本 ＋ 跨頁矛盾</text>
+
+<rect class="hum" x="955" y="130" width="150" height="56"/>
+<text class="tb" x="969" y="152">A6 人工簽核</text><text class="s" x="969" y="172">MingLu</text>
+
+<path class="fwd" d="M180,158 L213,158"/>
+<path class="fwd" d="M365,158 L398,158"/>
+<path class="fwd" d="M550,158 L583,158"/>
+<path class="fwd" d="M735,158 L768,158"/>
+<path class="fwd" d="M920,158 L953,158"/>
+
+<path class="bk" d="M475,186 L475,215 L105,215 L105,188"/>
+<text class="back" x="252" y="232">退回 → 只修被指出的那一頁</text>
+<path class="bk" d="M845,186 L845,248 L290,248 L290,188"/>
+<text class="back" x="560" y="265">矛盾 → 退回 A2</text>
+<path class="bk" d="M1030,186 L1030,280 L105,280 L105,190"/>
+<text class="back" x="700" y="297">不通過 → 退回 A2 重做</text>
+
+<!-- ============ GRAPH B ============ -->
+<text class="lane" x="30" y="350">GRAPH B — 產出簡報與逐字稿（A6 通過後才啟動）</text>
+<line x1="30" y1="360" x2="1150" y2="360" stroke="#dfe5ea"/>
+
+<rect class="ai"  x="30"  y="380" width="140" height="56"/>
+<text class="tb" x="44" y="402">B1 檢索 wiki</text><text class="s" x="44" y="422">只取已通過的頁</text>
+
+<rect class="chk" x="200" y="380" width="140" height="56"/>
+<text class="tb" x="214" y="402">B2 覆蓋率關卡</text><text class="s" x="214" y="422">不足 → 停，回 A</text>
+
+<rect class="ai"  x="370" y="380" width="140" height="56"/>
+<text class="tb" x="384" y="402">B3 證據卡</text><text class="s" x="384" y="422">平行，10 張</text>
+
+<rect class="ai"  x="540" y="380" width="140" height="56"/>
+<text class="tb" x="554" y="402">B4 大綱</text><text class="s" x="554" y="422">只能引用卡片</text>
+
+<rect class="hum" x="710" y="380" width="140" height="56"/>
+<text class="tb" x="724" y="402">B5 人工確認</text><text class="s" x="724" y="422">MingLu 看大綱</text>
+
+<rect class="ai"  x="880" y="380" width="140" height="56"/>
+<text class="tb" x="894" y="402">B6 逐頁稿</text><text class="s" x="894" y="422">投影片＋逐字稿</text>
+
+<path class="fwd" d="M170,408 L198,408"/>
+<path class="fwd" d="M340,408 L368,408"/>
+<path class="fwd" d="M510,408 L538,408"/>
+<path class="fwd" d="M680,408 L708,408"/>
+<path class="fwd" d="M850,408 L878,408"/>
+
+<path class="bk" d="M780,380 L780,350 L610,350 L610,378"/>
+<text class="back" x="600" y="343">退回 → 修大綱</text>
+<path class="bk" d="M745,380 L745,330 L100,330 L100,378"/>
+<text class="back" x="330" y="324">證據不足 → 退回 B1 補檢索</text>
+
+<rect class="chk" x="30"  y="500" width="140" height="56"/>
+<text class="tb" x="44" y="522">B7 忠實度</text><text class="s" x="44" y="542">獨立 agent</text>
+
+<rect class="chk" x="200" y="500" width="140" height="56"/>
+<text class="tb" x="214" y="522">B8 方程式</text><text class="s" x="214" y="542">對照登錄表</text>
+
+<rect class="ai"  x="370" y="500" width="140" height="56"/>
+<text class="tb" x="384" y="522">B9 渲染 HTML</text><text class="s" x="384" y="542">本機伺服器</text>
+
+<rect class="chk" x="540" y="500" width="140" height="56"/>
+<text class="tb" x="554" y="522">B10 渲染檢查</text><text class="s" x="554" y="542">溢出、KaTeX</text>
+
+<rect class="chk" x="710" y="500" width="140" height="56"/>
+<text class="tb" x="724" y="522">B11 時長</text><text class="s" x="724" y="542">30–45 分鐘</text>
+
+<rect class="out" x="880" y="500" width="140" height="56"/>
+<text class="tb" x="894" y="522">交件</text><text class="s" x="894" y="542">附檢查報告</text>
+
+<path class="fwd" d="M950,436 L950,468 L100,468 L100,498"/>
+<path class="fwd" d="M170,528 L198,528"/>
+<path class="fwd" d="M340,528 L368,528"/>
+<path class="fwd" d="M510,528 L538,528"/>
+<path class="fwd" d="M680,528 L708,528"/>
+<path class="fwd" d="M850,528 L878,528"/>
+
+<path class="bk" d="M100,556 L100,600 L950,600 L950,440"/>
+<text class="back" x="300" y="618">B7 不符 → 退回 B6 只修那一頁（最多 2 輪）</text>
+<path class="bk" d="M610,556 L610,640 L950,640 L950,444"/>
+<text class="back" x="640" y="658">溢出 → 退回 B6 只修那一頁</text>
+<path class="bk" d="M780,556 L780,678 L950,678 L950,448"/>
+<text class="back" x="700" y="696">時長不符 → 退回 B6 調整稿長</text>
+
+<line x1="30" y1="716" x2="1150" y2="716" stroke="#dfe5ea"/>
+<text class="s" x="30" y="738">設計原則：錯誤要在離源頭最近的地方被抓到。大圈（從 B 退回 A）應該很少發生；若常發生，代表檢查該往前移。</text>
+</svg>

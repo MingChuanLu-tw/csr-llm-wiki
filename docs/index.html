@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSR Leadership — LLM Wiki ＋ 教學簡報</title>
+<style>
+:root{--ink:#1b2733;--muted:#5b6b7a;--faint:#8a99a8;--accent:#b3261e;--rule:#e3e8ec;--panel:#f7f9fa}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:#fff;
+ font:17px/1.75 "Charter","Iowan Old Style",Georgia,"Songti TC","Noto Serif TC",serif}
+.wrap{max-width:820px;margin:0 auto;padding:56px 24px 110px}
+h1{font-size:30px;line-height:1.25;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:15.5px;margin:0 0 6px}
+.meta{color:var(--faint);font-size:13.5px;margin:0 0 34px;
+ font-family:ui-sans-serif,system-ui,sans-serif}
+h2{font-size:19px;margin:42px 0 12px;letter-spacing:-.005em}
+p{margin:.7em 0}
+.cards{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:26px 0 8px}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+a.card{display:block;padding:18px 20px;border:1px solid var(--rule);border-radius:9px;
+ text-decoration:none;color:inherit;background:var(--panel);transition:border-color .15s}
+a.card:hover{border-color:var(--accent)}
+a.card b{display:block;font-size:17px;margin-bottom:3px;color:var(--accent)}
+a.card span{display:block;font-size:14px;color:var(--muted);line-height:1.6;
+ font-family:ui-sans-serif,system-ui,sans-serif}
+table{border-collapse:collapse;width:100%;margin:.8em 0;font-size:15px}
+th,td{text-align:left;padding:.5em .9em .5em 0;border-bottom:1px solid var(--rule);
+ vertical-align:top}
+th{color:var(--muted);font-size:13px;font-weight:650;
+ font-family:ui-sans-serif,system-ui,sans-serif}
+code{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--panel);
+ padding:.1em .34em;border-radius:3px}
+a{color:var(--accent)}
+.note{border-left:3px solid var(--rule);padding:.1em 0 .1em 1.1em;color:var(--muted);
+ font-size:15px;margin:1.4em 0}
+img{max-width:100%;border:1px solid var(--rule);border-radius:7px;margin:.8em 0}
+footer{margin-top:54px;padding-top:20px;border-top:1px solid var(--rule);
+ color:var(--faint);font-size:13.5px;font-family:ui-sans-serif,system-ui,sans-serif}
+</style></head><body><div class="wrap">
+
+<h1>CSR 領導、外溢與先行者優勢</h1>
+<p class="sub">用 LLM Wiki ＋ graph 流程，把一篇賽局論文變成 30–45 分鐘的研討會報告</p>
+<p class="meta">115-1 TAICA《生成式 AI：文字與圖像生成的原理與實務》第十週作業 ／ 陸明權</p>
+
+<div class="cards">
+  <a class="card" href="slides/">
+    <b>教學簡報 →</b>
+    <span>30 張正片 ＋ 7 張備用。方程式以 KaTeX 排版。用 ← → 翻頁。</span>
+  </a>
+  <a class="card" href="wiki.html">
+    <b>LLM Wiki →</b>
+    <span>19 頁、約 17,700 字，來自 5 篇論文。644 條方程式、42 張表。</span>
+  </a>
+</div>
+
+<h2>這份作業在做什麼</h2>
+<p>把 Karpathy 的 LLM Wiki 方法套到讀論文上：五篇論文先進唯讀的 <code>raw/</code>，
+經過一條有驗證關卡的 <b>graph</b>（不是單一 loop）累積成 wiki，再由第二條 graph
+只根據通過驗證的 wiki 產出簡報與逐字稿。主來源是
+Kopel (2021, <i>Decisions in Economics and Finance</i> 44: 489–505, CC BY 4.0)，
+做完整深度；另外四篇做輕量深度並標示。</p>
+
+<p>整條流程的設計原則是一句話：<b>錯誤要在離源頭最近的地方被抓到</b>。
+每一道關卡都是一支腳本或一份有逐條判定的獨立審查報告——「檢查一下」不算驗證。</p>
+
+<img src="workflow.svg" alt="Graph A 與 Graph B 的流程圖，含所有退回路線">
+
+<h2>流程實際抓到了什麼</h2>
+<table>
+<thead><tr><th>關卡</th><th>結果</th></tr></thead>
+<tbody>
+<tr><td>A4 符號驗證</td><td>12/12 方程式精確相符；論文未說明的 γ<sub>max</sub> = 0.810736 經追查是 θ=0 時追隨者的內部解邊界</td></tr>
+<tr><td>A3 獨立審查（第一輪）</td><td><b>FAIL</b> — 5 個 blocker，含一條論文裡並不存在的引文</td></tr>
+<tr><td>A5 跨頁矛盾</td><td><b>FAIL</b> — 1 個 blocker：兩頁寫著錯誤的因果，而反證就在 wiki 自己登錄的數字裡</td></tr>
+<tr><td>B7 忠實度</td><td><b>FAIL</b> — 1 個 blocker：卡片承載的引文比 wiki 短，使投影片失去依據</td></tr>
+<tr><td>B8 / B10 / B11</td><td>PASS — 方程式全在登錄表內、37 頁零溢出、36.2 分鐘</td></tr>
+<tr><td>第六節反思</td><td>另外兩輪獨立審查：第一輪 FAIL（8 項必改）、第二輪 PASS WITH FIXES（9 項）</td></tr>
+</tbody></table>
+
+<h2>最值得看的一個發現</h2>
+<p>領導者的先行者優勢消失之後，它<b>仍然在嚇阻、仍然在超額投資</b>——三個門檻嚴格排序，
+而且相差的倍數隨競爭強度遞減（γ=0.8 約 6 倍、γ=0.3 約 105 倍、γ=0.1 約 940 倍）。
+所以「先行者優勢死於嚇阻失效」這個直覺解釋是錯的。</p>
+<p class="note">這個發現不是靠更仔細讀論文得到的，是 <b>A5 跨頁一致性檢查的副產品</b>——
+那一刻流程在反駁撰寫者自己寫下的因果解釋。兩位獨立審查者各自從論文的 eq. (1)
+重解賽局，都重現了這三個倍數。</p>
+
+<h2>流程證據（都在 repo 裡）</h2>
+<table>
+<thead><tr><th>檔案</th><th>內容</th></tr></thead>
+<tbody>
+<tr><td><a href="https://github.com/MingChuanLu-tw/csr-llm-wiki/blob/main/%E7%B9%B3%E4%BA%A4/%E7%B9%B3%E4%BA%A4%E5%85%A7%E5%AE%B9.md">繳交內容.md</a></td><td>六節繳交文件；第六節回答作業的三個問題</td></tr>
+<tr><td><a href="https://github.com/MingChuanLu-tw/csr-llm-wiki/blob/main/log.md">log.md</a></td><td>80 筆執行紀錄，其中 43 筆改變了流程——反思的素材</td></tr>
+<tr><td><a href="https://github.com/MingChuanLu-tw/csr-llm-wiki/blob/main/AGENTS.md">AGENTS.md</a></td><td>這套流程的規格書：每個節點可讀什麼、可寫什麼、不可做什麼</td></tr>
+<tr><td><a href="https://github.com/MingChuanLu-tw/csr-llm-wiki/tree/main/checks">checks/</a></td><td>六份逐條判定的檢查報告</td></tr>
+<tr><td><a href="https://github.com/MingChuanLu-tw/csr-llm-wiki/tree/main/scripts">scripts/</a></td><td>8 支 Python ＋ 1 支瀏覽器端檢查腳本，可重跑</td></tr>
+<tr><td><a href="https://github.com/MingChuanLu-tw/csr-llm-wiki/blob/main/notes/script.md">notes/script.md</a></td><td>英文逐字稿，4,710 字</td></tr>
+</tbody></table>
+
+<footer>
+原始論文的 PDF 不在這個 repo 裡：五篇中只有 Kopel (2021) 是開放取用，
+其餘四篇為付費期刊論文。完整引用與 DOI 見
+<a href="https://github.com/MingChuanLu-tw/csr-llm-wiki/blob/main/wiki/sources.md">wiki/sources.md</a>。<br>
+簡報與 wiki 的方程式由 KaTeX 0.16.9 於瀏覽器端排版。
+</footer>
+
+</div></body></html>

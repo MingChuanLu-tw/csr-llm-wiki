@@ -1,0 +1,36 @@
+========================================================================
+A5 LINT — 13 wiki pages
+========================================================================
+L1 wikilinks resolve           : PASS
+L2 no orphan pages             : PASS
+L3 index lists every page      : PASS
+L4 markdown tables well-formed : PASS
+L5 LaTeX delimiters balanced   : FAIL (2)
+L6 key constants consistent    : FAIL (1)
+L7 sections cited or tagged    : FAIL (5)
+L8 raw/ and wiki/papers/ match : PASS
+L9 referenced files exist      : PASS
+L10 index counts accurate      : PASS
+========================================================================
+TOTAL: 8 problems — 0 blocker, 6 should-fix, 2 minor
+========================================================================
+
+### SHOULD-FIX
+  [L6 constant] wiki/numbers.md:55
+      '0.8107' looks like gamma_max but is not one of the accepted forms ['0.810736', '0.8107358771', '0.8107359', '0.8107358771227719']
+  [L7 citation] wiki/concepts/first-mover-advantage.md:5
+      section '## Definition used in this wiki' has 48 words, no page citation and no marking tag
+  [L7 citation] wiki/concepts/first-mover-advantage.md:86
+      section '## Open issues' has 46 words, no page citation and no marking tag
+  [L7 citation] wiki/papers/Kopel2021-CSR.md:355
+      section '### A4 — PASSED 2026-11-16 (`checks/a4_report.md' has 160 words, no page citation and no marking tag
+  [L7 citation] wiki/papers/Kopel2021-CSR.md:369
+      section '### A3 — reviewed 2026-11-16, FAIL, defects fixe' has 193 words, no page citation and no marking tag
+  [L7 citation] wiki/papers/Kopel2021-CSR.md:381
+      section '### Remaining gaps' has 202 words, no page citation and no marking tag
+
+### MINOR
+  [L5 latex] wiki/glossary.md:11
+      unbalanced bracket inside inline math
+  [L5 latex] wiki/papers/Kopel2021-CSR.md:68
+      unbalanced bracket inside inline math

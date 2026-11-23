@@ -1,0 +1,21 @@
+N(gamma, theta=0) = -gamma**7 - 2*gamma**6 + 7*gamma**5 + 15*gamma**4 - 15*gamma**3 - 35*gamma**2 + 6*gamma + 18
+
+real roots:
+   0.8107358771227718853230247
+   -0.9209630335397241176656913
+   -1.840283244253709398375491
+
+roots in (0,1): ['0.810735877122772']
+   |root - 0.810736| = 1.22877e-7
+   rounded to 6 dp    = 0.8107359
+
+root of N(gamma, theta) = 0 as theta varies:
+   theta=0     gamma = 0.810735877123  in (0,1)
+   theta=0.05  gamma = 0.823865193307  in (0,1)
+   theta=0.1   gamma = 0.836338473147  in (0,1)
+   theta=0.2   gamma = 0.859199583615  in (0,1)
+   theta=0.3   gamma = 0.879115762802  in (0,1)
+   theta=0.5   gamma = 0.909600312291  in (0,1)
+   theta=1.0   gamma = 0.932525905931  in (0,1)
+
+Conclusion: gamma_max is the theta=0 interiority bound (follower's equilibrium CSR reaches zero).

@@ -1,0 +1,16 @@
+========================================================================
+A5 LINT — 13 wiki pages
+========================================================================
+L1 wikilinks resolve           : PASS
+L2 no orphan pages             : PASS
+L3 index lists every page      : PASS
+L4 markdown tables well-formed : PASS
+L5 LaTeX delimiters balanced   : PASS
+L6 key constants consistent    : PASS
+L7 sections cited or tagged    : PASS
+L8 raw/ and wiki/papers/ match : PASS
+L9 referenced files exist      : PASS
+L10 index counts accurate      : PASS
+========================================================================
+TOTAL: 0 problems — 0 blocker, 0 should-fix, 0 minor
+========================================================================

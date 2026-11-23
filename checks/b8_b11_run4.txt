@@ -1,0 +1,22 @@
+======================================================================
+B8 — equation check
+======================================================================
+register entries (normalised parts): 42
+display equations on slides        : 8
+every slide equation matches wiki/equations.md      PASS
+delimiter balance                                   PASS
+
+======================================================================
+B11 — timing check
+======================================================================
+spoken words               : 4710
+at 150 wpm (fast)          : 31.4 min
+at 130 wpm (measured slow) : 36.2 min
+fits 30–45 min at both speeds                       PASS
+slides in deck             : 30 (+7 backup)
+slides with script         : 30
+every slide has a script                            PASS
+
+======================================================================
+RESULT: B8 and B11 PASS
+======================================================================
