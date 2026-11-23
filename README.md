@@ -1,13 +1,13 @@
 # CSR 領導、外溢與先行者優勢 — LLM Wiki ＋ 教學簡報
 
-115-1 TAICA《生成式 AI：文字與圖像生成的原理與實務》**第十週作業** ／ 陸明權
+115-1 TAICA《生成式 AI：文字與圖像生成的原理與實務》**第十週作業** ／ 呂明權
 
 ### 👉 [線上瀏覽（GitHub Pages）](https://mingchuanlu-tw.github.io/csr-llm-wiki/)
 
 | | |
 |---|---|
 | **教學簡報** | https://mingchuanlu-tw.github.io/csr-llm-wiki/slides/ — 30 張正片 ＋ 7 張備用，← → 翻頁 |
-| **LLM Wiki** | https://mingchuanlu-tw.github.io/csr-llm-wiki/wiki.html — 19 頁、約 17,700 字、644 條方程式 |
+| **LLM Wiki** | https://mingchuanlu-tw.github.io/csr-llm-wiki/wiki.html — 19 頁、約 17,800 詞（`wc -w`，含公式與表格；散文約 14,000 詞，見 [`checks/wiki_wordcount.txt`](checks/wiki_wordcount.txt)）、644 條方程式 |
 | **流程圖** | https://mingchuanlu-tw.github.io/csr-llm-wiki/workflow.svg |
 
 ---
@@ -40,11 +40,11 @@ wiki** 產出 30–45 分鐘研討會用的簡報與逐字稿。
 | 檔案 | 內容 |
 |---|---|
 | [`AGENTS.md`](AGENTS.md) | 規格書：每個節點可讀什麼、可寫什麼、不可做什麼、失敗退回哪裡 |
-| [`log.md`](log.md) | **80 筆**執行紀錄，其中 **43 筆改變了流程**。反思完全由這份表寫出來 |
-| [`checks/`](checks/) | 六份逐條判定的報告：A3 獨立審查（兩輪）、A4 符號驗證、A5 跨頁矛盾、B7 忠實度，以及對第六節反思本身的兩輪審查 |
+| [`log.md`](log.md) | **90 筆**執行紀錄，其中 **50 筆改變了流程**。反思完全由這份表寫出來 |
+| [`checks/`](checks/) | 逐條判定的報告（份數見目錄）：A3 獨立審查（兩輪）、A4 符號驗證、A5 跨頁矛盾、B7 忠實度，以及對第六節反思本身的兩輪審查 |
 | [`scripts/`](scripts/) | 8 支 Python ＋ 1 支瀏覽器端檢查腳本，全部可重跑 |
 | [`notes/`](notes/) | 10 張證據卡、30 張投影片大綱、英文逐字稿（4,710 字 → 36.2 分鐘） |
-| [`HISTORY.md`](HISTORY.md) | 完整 git 歷史（本 repo 是單一 commit 快照，原因見下） |
+| [`HISTORY.md`](HISTORY.md) | 完整 git 歷史（本 repo 是不含 PDF 的重建快照，歷史與本機不對應，原因見下） |
 
 ## 流程抓到的四個 blocker
 
@@ -74,7 +74,7 @@ python3 scripts/b8_b11_checks.py          # 方程式登錄比對 ＋ 逐字稿�
 開放取用，其餘四篇為付費期刊論文（*Managerial and Decision Economics*、
 *Energy Economics*、*The Manchester School* 等），公開散布全文會侵犯版權。
 
-因為那些 PDF 存在於原始 repo 的 git 歷史裡，公開版本採用**單一 commit 的快照**。
+因為那些 PDF 存在於原始 repo 的 git 歷史裡，公開版本是**不含 `raw/` PDF 的重建快照**，它的 commit 歷史與原始歷史不對應。
 完整歷史與第六節引用的 8 個 commit hash 的用途保存在 [`HISTORY.md`](HISTORY.md)。
 完整引用與 DOI 見 [`wiki/sources.md`](wiki/sources.md)。
 

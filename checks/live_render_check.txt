@@ -1,0 +1,18 @@
+# 線上版渲染檢查 — 2026-11-23（GitHub Pages，未登入、純 HTTP，內建瀏覽器實跑）
+# 目的：第六節／§2／§3 宣稱「N 條方程式渲染、0 個錯誤」，此檔是該宣稱的 artefact。
+# 判準：KaTeX 渲染失敗時會產出 class="katex-error" 的節點（預設紅字 #cc0000），
+#       所以「0 個錯誤」＝ .katex-error 節點數為 0 且無 cc0000 內聯色節點。
+# 注意：這是在瀏覽器 console 執行的 JS，輸出為下列原始 JSON，由人工貼入本檔（不是腳本自動寫檔）。
+
+[deck]  https://mingchuanlu-tw.github.io/csr-llm-wiki/slides/
+{"katexLoaded":true,"katexNodes":103,"katexErrorNodes":0,"errorColorNodes":0,"slides":37,"time":"2026-11-23T08:40:41.685Z"}
+
+[wiki]  https://mingchuanlu-tw.github.io/csr-llm-wiki/wiki.html
+{"katexLoaded":true,"katexNodes":644,"katexErrorNodes":0,"errorColorNodes":0,"tables":42,"time":"2026-11-23T08:40:46.761Z"}
+
+# 檢查程式（兩頁相同）：
+#   JSON.stringify({katexLoaded: typeof window.katex!=='undefined',
+#     katexNodes: document.querySelectorAll('.katex').length,
+#     katexErrorNodes: document.querySelectorAll('.katex-error').length,
+#     errorColorNodes: [...document.querySelectorAll('[style*="cc0000"],[style*="rgb(204, 0, 0)"]')].length})
+# 限制：只證明「渲染沒有報錯」，不證明「渲染出來的式子與 wiki/equations.md 一致」——後者是 B8 的工作。

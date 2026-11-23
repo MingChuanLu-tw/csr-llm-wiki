@@ -1,0 +1,28 @@
+# wiki 字數量測 — 2026-11-23
+# 方法：wiki/ 下全部 .md；剝除行內 $...$ 公式、表格列、`程式碼`、markdown 符號後，以空白切詞。
+# 這是「散文詞數」，不含公式與表格，所以會比 wc -w 小。wiki 內容是英文，空白切詞適用。
+   580  wiki/concepts/appropriability.md
+   543  wiki/concepts/competition-intensity.md
+   450  wiki/concepts/csr-modelling-choices.md
+   717  wiki/concepts/csr-spillovers.md
+   665  wiki/concepts/first-mover-advantage.md
+   436  wiki/concepts/rival-exclusion.md
+   850  wiki/concepts/strategic-commitment.md
+   879  wiki/equations.md
+   174  wiki/glossary.md
+   184  wiki/index.md
+   442  wiki/numbers.md
+  1166  wiki/open-questions.md
+   543  wiki/overview.md
+   392  wiki/papers/BarcenaRuizSagasta2021-CrossOwnershipCSR.md
+   353  wiki/papers/Chen2021-OptimalCSR.md
+   480  wiki/papers/HiroseMatsumura2022-CommonOwnershipECSR.md
+  4346  wiki/papers/Kopel2021-CSR.md
+   439  wiki/papers/XingLee2023-EnvironmentalRD.md
+   368  wiki/sources.md
+pages=19  prose_words=14007
+
+# 對照：原始詞數（含公式與表格骨架）
+#   cat wiki/*.md wiki/*/*.md | wc -w   →   17836
+# 說明：繳交文件原本寫「約 17,700 字」，與此原始詞數相近（差 136），但當時沒寫方法、沒留 artefact。
+#       兩種口徑都是真的，只是量的東西不同；文件現在兩個都寫出來，並標明口徑。
